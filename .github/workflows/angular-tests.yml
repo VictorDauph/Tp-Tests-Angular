@@ -1,6 +1,5 @@
 name: Run Angular Tests
 
-# Déclenche le workflow sur chaque push ou pull request sur la branche principale
 on:
   push:
     branches:
@@ -13,6 +12,7 @@ jobs:
   test:
     name: Run Angular Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 10 # Timeout global du job
 
     steps:
       # Étape 1 : Vérifier le code du dépôt
@@ -23,12 +23,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20.18 # Version de Node.js utilisée
+          node-version: 20.18
 
       # Étape 3 : Installer les dépendances
       - name: Install dependencies
         run: npm install
 
-      # Étape 4 : Lancer les tests
+      # Étape 4 : Lancer les tests avec des logs supplémentaires
       - name: Run tests
-        run: npm test
+        run: ng test --watch=false --log-level=debug
