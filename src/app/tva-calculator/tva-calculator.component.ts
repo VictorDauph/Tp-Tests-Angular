@@ -13,7 +13,6 @@ export class TvaCalculatorComponent {
   tvaRate: number = 20; // Taux de TVA (par défaut 20%)
   priceTTC: number = 0; // Prix toutes taxes comprises
 
-
   calculateTTC(): void {
     this.priceTTC = this.priceHT + (this.priceHT * this.tvaRate / 100);
   }
