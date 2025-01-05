@@ -31,4 +31,4 @@ jobs:
 
       # Étape 4 : Lancer les tests avec des logs supplémentaires
       - name: Run tests
-        run: ng test --watch=false --log-level=debug
+        run: npm test --watch=false --log-level=debug
