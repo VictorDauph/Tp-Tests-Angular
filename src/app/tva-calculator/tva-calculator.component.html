@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Calculateur de TVA</h1>
+    <div>
+        <label for="priceHT">Prix HT (€) :</label>
+        <input id="priceHT" type="number" [(ngModel)]="priceHT" placeholder="Saisissez le prix HT" />
+    </div>
+    <div>
+        <label for="tvaRate">Taux de TVA (%) :</label>
+        <input id="tvaRate" type="number" [(ngModel)]="tvaRate" placeholder="Taux de TVA" />
+    </div>
+    <button (click)="calculateTTC()">Calculer</button>
+    <p *ngIf="priceTTC">Prix TTC : {{ priceTTC | number:'1.2-2' }} €</p>
+</div>
